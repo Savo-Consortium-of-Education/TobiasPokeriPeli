@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="Script" path="res://scripts/chips.gd" id="2_chips"]
+[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="3_ui"]
+[ext_resource type="PackedScene" path="res://scenes/game_over.tscn" id="4_over"]
+[ext_resource type="PackedScene" path="res://scenes/table.tscn" id="5_table"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_game")
+
+[node name="Table" parent="." instance=ExtResource("5_table")]
+
+[node name="DealerSpot" type="Marker3D" parent="."]
+position = Vector3(0, 0.02, -1.7)
+
+[node name="PlayerSpot" type="Marker3D" parent="."]
+position = Vector3(0, 0.02, 1.6)
+
+[node name="ShoeSpot" type="Marker3D" parent="."]
+position = Vector3(5.4, 0.95, -1.9)
+
+[node name="Cards" type="Node3D" parent="."]
+
+[node name="Chips" type="Node3D" parent="."]
+position = Vector3(4.6, 0, 1.4)
+script = ExtResource("2_chips")
+
+[node name="UI" parent="." instance=ExtResource("3_ui")]
+
+[node name="GameOver" parent="." instance=ExtResource("4_over")]

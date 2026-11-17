@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://scenes/table.tscn" id="2_table"]
+[ext_resource type="PackedScene" path="res://scenes/bank_dialog.tscn" id="3_bank"]
+[ext_resource type="FontVariation" path="res://fonts/title_font.tres" id="4_title"]
+
+[node name="Menu" type="Node3D"]
+script = ExtResource("1_menu")
+
+[node name="Table" parent="." instance=ExtResource("2_table")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="WalletBox" type="VBoxContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 24.0
+offset_right = -28.0
+offset_bottom = 150.0
+grow_horizontal = 0
+theme_override_constants/separation = 6
+
+[node name="MoneyLabel" type="Label" parent="UI/WalletBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Rahat: 1 000 €"
+horizontal_alignment = 2
+
+[node name="DebtLabel" type="Label" parent="UI/WalletBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.62, 0.55, 1)
+theme_override_font_sizes/font_size = 26
+text = "Velka: 0 €"
+horizontal_alignment = 2
+
+[node name="BankButton" type="Button" parent="UI/WalletBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Työttömien pankki"
+alignment = 2
+
+[node name="Title" type="VBoxContainer" parent="UI"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -190.0
+offset_right = 560.0
+offset_bottom = 190.0
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="UI/Title"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.55)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("4_title")
+theme_override_font_sizes/font_size = 72
+text = "BLACKJACK"
+
+[node name="TaglineLabel" type="Label" parent="UI/Title"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.94, 0.88, 0.8)
+theme_override_font_sizes/font_size = 30
+text = "Kerran vielä"
+
+[node name="Spacer" type="Control" parent="UI/Title"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="UI/Title"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 56)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Istu pöytään"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="UI/Title"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 56)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Lopeta"
+alignment = 0
+
+[node name="BankDialog" parent="UI" instance=ExtResource("3_bank")]
+unique_name_in_owner = true

@@ -1,0 +1,29 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+
+config/name="Blackjack 3D"
+run/main_scene="res://scenes/menu.tscn"
+config/features=PackedStringArray("4.2")
+
+[autoload]
+
+Wallet="*res://scripts/wallet.gd"
+Music="*res://scenes/music.tscn"
+Sfx="*res://scenes/sfx.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom="res://theme.tres"
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=2

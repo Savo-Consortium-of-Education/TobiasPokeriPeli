@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/sfx.gd" id="1_sfx"]
+[ext_resource type="AudioStream" path="res://audio/deal.wav" id="2_deal"]
+[ext_resource type="AudioStream" path="res://audio/flip.wav" id="3_flip"]
+[ext_resource type="AudioStream" path="res://audio/chip.wav" id="4_chip"]
+[ext_resource type="AudioStream" path="res://audio/click.wav" id="5_click"]
+[ext_resource type="AudioStream" path="res://audio/win.wav" id="6_win"]
+[ext_resource type="AudioStream" path="res://audio/blackjack.wav" id="7_bj"]
+[ext_resource type="AudioStream" path="res://audio/lose.wav" id="8_lose"]
+
+[node name="Sfx" type="Node"]
+script = ExtResource("1_sfx")
+
+[node name="Deal" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+stream = ExtResource("2_deal")
+volume_db = -3.0
+max_polyphony = 4
+
+[node name="Flip" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+stream = ExtResource("3_flip")
+volume_db = -3.0
+
+[node name="Chip" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+stream = ExtResource("4_chip")
+volume_db = -6.0
+max_polyphony = 4
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+stream = ExtResource("5_click")
+volume_db = -8.0
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+stream = ExtResource("6_win")
+volume_db = -6.0
+
+[node name="Blackjack" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+stream = ExtResource("7_bj")
+volume_db = -5.0
+
+[node name="Lose" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+stream = ExtResource("8_lose")
+volume_db = -6.0

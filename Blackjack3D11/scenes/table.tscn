@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/camera_sway.gd" id="1_sway"]
+
+[sub_resource type="Environment" id="Environment_main"]
+background_mode = 1
+background_color = Color(0.03, 0.03, 0.05, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.45
+
+[sub_resource type="BoxMesh" id="BoxMesh_wood"]
+size = Vector3(17, 0.3, 10)
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood"]
+albedo_color = Color(0.25, 0.14, 0.07, 1)
+roughness = 0.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_felt"]
+size = Vector2(16, 9.2)
+
+[sub_resource type="StandardMaterial3D" id="Mat_felt"]
+albedo_color = Color(0.055, 0.42, 0.21, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_shoe"]
+size = Vector3(1.1, 0.7, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="Mat_shoe"]
+albedo_color = Color(0.7, 0.125, 0.165, 1)
+roughness = 0.5
+
+[node name="Table" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_main")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+position = Vector3(0, 7.5, 5.2)
+rotation_degrees = Vector3(-57.4, 0, 0)
+fov = 45.0
+near = 1.0
+far = 60.0
+script = ExtResource("1_sway")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+rotation_degrees = Vector3(-60, -20, 0)
+light_energy = 0.9
+shadow_enabled = true
+
+[node name="Wood" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_wood")
+material_override = SubResource("Mat_wood")
+position = Vector3(0, -0.16, 0)
+
+[node name="Felt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_felt")
+material_override = SubResource("Mat_felt")
+
+[node name="Shoe" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_shoe")
+material_override = SubResource("Mat_shoe")
+position = Vector3(5.4, 0.35, -1.9)
